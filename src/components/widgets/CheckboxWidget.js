@@ -20,9 +20,9 @@ function CheckboxWidget(props) {
         <DescriptionField description={schema.description} />
       )}
 
-      <div className="form-check">
+      <div className="eh-check-group">
         <input
-          className="form-check-input"
+          className="eh-check__input"
           type="checkbox"
           id={id}
           checked={typeof value === "undefined" ? false : value}
@@ -31,7 +31,13 @@ function CheckboxWidget(props) {
           autoFocus={autofocus}
           onChange={event => onChange(event.target.checked)}
         />
-        <label className="form-check-label" htmlFor="defaultCheck1">
+        <label className="eh-check__label" htmlFor={id}>
+          <svg width="22px" height="22px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+          </svg>
+        </label>
+        <label className="bodyLarge ml-sm" htmlFor={id}>
           {label}
         </label>
       </div>

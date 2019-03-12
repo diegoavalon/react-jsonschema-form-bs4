@@ -13,11 +13,11 @@ function RadioWidget(props) {
   } = props;
   // Generating a unique field name to identify this set of radio buttons
   const name = Math.random().toString();
-  const { enumOptions, enumDisabled, inline } = options;
+  const { enumOptions, enumDisabled, inline, selectable } = options;
   // checked={checked} has been moved above name={name}, As mentioned in #349;
   // this is a temporary fix for radio button rendering bug in React, facebook/react#7630.
   return (
-    <div className="field-radio-group">
+    <div className="eh-radio-group">
       {enumOptions.map((option, i) => {
         const checked = option.value === value;
         const itemDisabled =
@@ -26,7 +26,8 @@ function RadioWidget(props) {
           disabled || itemDisabled || readonly ? "disabled" : "";
         const radio = (
           <input
-            className="form-check-input"
+            id={i}
+            className="eh-radio__input"
             type="radio"
             checked={checked}
             name={name}
@@ -38,17 +39,28 @@ function RadioWidget(props) {
           />
         );
 
-        return inline ? (
-          <div className={`form-check-inline ${disabledCls}`}>
+        const selectableCard = (
+          <div key={i} className="selectable-card">
             {radio}
-            <label className="form-check-label" htmlFor={i}>
+            <label className="eh-radio__label bodyLarge" htmlFor={i}>
+              {option.label}
+            </label>
+          </div>
+        );
+
+        if (selectable) return selectableCard
+
+        return inline ? (
+          <div key={i} className={`eh-radio__wrapper--inline ${disabledCls}`}>
+            {radio}
+            <label className="eh-radio__label bodyLarge" htmlFor={i}>
               {option.label}
             </label>
           </div>
         ) : (
-          <div className={`form-check ${disabledCls}`}>
+          <div key={i} className={`eh-radio__wrapper ${disabledCls}`}>
             {radio}
-            <label className="form-check-label" htmlFor={i}>
+            <label className="eh-radio__label bodyLarge" htmlFor={i}>
               {option.label}
             </label>
           </div>

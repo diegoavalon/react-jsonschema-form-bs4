@@ -1,16 +1,19 @@
-react-jsonschema-form-bs4
+eHealth UEF Prototype
 =========================
 
-A port of [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form) to [Bootstrap 4](https://getbootstrap.com/docs/4.2/getting-started/introduction/).
+A port of [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form) with custom components built by [eHealth Insurance](https://www.ehealthinsurance.com/) engineering.
 
 See the [main repository](https://github.com/mozilla-services/react-jsonschema-form#readme) for documentation.
 
-This version is based on react-jsonschema-form v1.0.6.
+This work is ported from react-jsonschema-form v1.0.6.
 
 ## Installation
 
-    npm install react-jsonschema-form-bs4
+    git clone https://github.com/diegoavalon/react-jsonschema-form-bs4.git
+    npm install
 
-## License
+## Develop
 
-Apache 2
+Protoype files are under the `Playground` directory
+
+    npm start
